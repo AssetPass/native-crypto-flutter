@@ -241,12 +241,13 @@ class AES implements Cipher<AESCipherChunk> {
     }
 
     // TODO(hpcl): move these checks to the platform interface
+    /*
     if (bytes == null) {
       throw NativeCryptoException(
         code: NativeCryptoExceptionCode.nullError,
         message: 'Platform returned null bytes on chunk #$count',
       );
-    }
+    }*/
 
     if (bytes.isEmpty) {
       throw NativeCryptoException(
@@ -281,12 +282,13 @@ class AES implements Cipher<AESCipherChunk> {
     }
 
     // TODO(hpcl): move these checks to the platform interface
+    /*
     if (bytes == null) {
       throw NativeCryptoException(
         code: NativeCryptoExceptionCode.nullError,
         message: 'Platform returned null bytes on chunk #$count',
       );
-    }
+    }*/
 
     return bytes;
   }
