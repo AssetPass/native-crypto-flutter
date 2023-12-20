@@ -15,7 +15,7 @@ class AesGcm {
   FortunaRandom? _secureRandom;
 
   Uint8List encrypt(Uint8List data, Uint8List key) {
-    final iv = generateRandomBytes(12);
+    final iv = generateRandomBytes(16);
 
     final gcm = GCMBlockCipher(AESEngine())
       ..init(
@@ -36,9 +36,9 @@ class AesGcm {
   }
 
   Uint8List decrypt(Uint8List cipherText, Uint8List key) {
-    final iv = Uint8List.fromList(cipherText.sublist(0, 12));
+    final iv = Uint8List.fromList(cipherText.sublist(0, 16));
     final cipherTextWithoutIv = Uint8List.fromList(
-      cipherText.sublist(12),
+      cipherText.sublist(16),
     );
 
     final gcm = GCMBlockCipher(AESEngine())
